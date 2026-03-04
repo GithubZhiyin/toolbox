@@ -6,7 +6,7 @@ import numpy as np
 
 
 corr_matrix = lambda d: np.ma.corrcoef(np.ma.masked_invalid(np.array([np.array(m).flatten() for m in d]))).data
-
+# code below is a more detailed version of the lambda function above 
 def calculate_correlation_matrix(data_list):
     flattened_arrays = []
     for array in data_list:
@@ -18,5 +18,4 @@ def calculate_correlation_matrix(data_list):
     stacked_arrays = np.ma.vstack(flattened_arrays)
     correlation_matrix_masked = np.ma.corrcoef(stacked_arrays)
     correlation_matrix = correlation_matrix_masked.data
-    
     return correlation_matrix
